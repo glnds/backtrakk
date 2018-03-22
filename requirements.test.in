@@ -2,8 +2,10 @@
 pip-tools
 flake8
 autopep8
-# yapf
 requests
 Flask
 mock
 pytest
+pytest-watch
+pysha3
+# sha3
