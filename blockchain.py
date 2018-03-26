@@ -2,7 +2,7 @@ import sha3
 import json
 from time import time
 from uuid import uuid4
-from urllib., parse import urlparse
+from urllib.parse import urlparse
 
 from flask import Flask, jsonify, request
 
@@ -46,9 +46,8 @@ class Blockchain(object):
             print(f'{block}')
             print("\n-----------\n")
             # check the block's hash
-            if block['previous_hash']  != self.hash(last_block):
+            if block['previous_hash'] != self.hash(last_block):
                 return False
-
 
     def new_block(self, proof, previous_hash=None):
         """
@@ -121,7 +120,7 @@ class Blockchain(object):
 
         # Because SHA3 is designed to be a completely unpredictable pseudorandom function,
         # the only way to create a valid block is simply trial and error, repeatedly incrementing
-        # the nonce and seeing if the new hash matches.
+        # the nonce and check if the new hash matches.
         guess = f'{last_proof}{proof}'.encode()
         guess_hash = sha3.keccak_256(guess).hexdigest()
         return guess_hash[:4] == "0000"
