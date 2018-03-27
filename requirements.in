@@ -1,0 +1,4 @@
+# requirements.in
+requests
+Flask
+pysha3
