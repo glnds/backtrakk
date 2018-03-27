@@ -1,4 +1,5 @@
 import sha3
+
 import json
 from time import time
 from uuid import uuid4
@@ -152,6 +153,10 @@ node_identifier = str(uuid4()).replace('-', '')
 
 blockchain = Blockchain()
 
+@app.route('/health', methods=['GET'])
+def health():
+    """Load balancer health check."""
+    return ('', 204)
 
 @app.route('/mine', methods=['GET'])
 def mine():
